@@ -7,7 +7,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     bridge_dir = get_package_share_directory('challenge_bridge')
-    world_file = os.path.join(bridge_dir, 'worlds', 'training_world_1.sdf')
+    world_file = os.path.join(bridge_dir, 'worlds', 'training_world_2.sdf')
     robot_model_path = os.path.join(bridge_dir, 'models', 'robot.sdf')
     
     # 1. Launch Gazebo Sim
@@ -52,13 +52,13 @@ def generate_launch_description():
             '/model/robot_1/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist',
             '/model/robot_1/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry',
             '/model/robot_1/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
-            '/world/training_world_1/model/robot_1/link/lidar_link/sensor/gpu_lidar/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan',
+            '/world/training_world_2/model/robot_1/link/lidar_link/sensor/gpu_lidar/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan',
         ],
         remappings=[
             ('/model/robot_1/cmd_vel', '/robot_1/cmd_vel'),
             ('/model/robot_1/odometry', '/robot_1/odom'),
             ('/model/robot_1/tf', '/tf'),
-            ('/world/training_world_1/model/robot_1/link/lidar_link/sensor/gpu_lidar/scan', '/robot_1/scan'),
+            ('/world/training_world_2/model/robot_1/link/lidar_link/sensor/gpu_lidar/scan', '/robot_1/scan'),
         ],
         output='screen'
     )
@@ -72,13 +72,13 @@ def generate_launch_description():
             '/model/robot_2/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist',
             '/model/robot_2/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry',
             '/model/robot_2/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
-            '/world/training_world_1/model/robot_2/link/lidar_link/sensor/gpu_lidar/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan',
+            '/world/training_world_2/model/robot_2/link/lidar_link/sensor/gpu_lidar/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan',
         ],
         remappings=[
             ('/model/robot_2/cmd_vel', '/robot_2/cmd_vel'),
             ('/model/robot_2/odometry', '/robot_2/odom'),
             ('/model/robot_2/tf', '/tf'),
-            ('/world/training_world_1/model/robot_2/link/lidar_link/sensor/gpu_lidar/scan', '/robot_2/scan'),
+            ('/world/training_world_2/model/robot_2/link/lidar_link/sensor/gpu_lidar/scan', '/robot_2/scan'),
         ],
         output='screen'
     )
